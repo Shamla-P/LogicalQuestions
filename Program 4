@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.ConstrainedExecution;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleAppCore
+{
+    internal class Task_4
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Accept the passenger Date of Birth");
+            Console.WriteLine("a.Display his / her age in Hours");
+            Console.WriteLine("b.Display his / her age in Days");
+            Console.WriteLine("c.Display his / her age in weeks");
+            Console.WriteLine("d.Display his / her age in Months");
+            Console.WriteLine("e.Display his / her age in Years");
+            Console.WriteLine("f.Display his / her year of birth is a leap year or not)");
+
+            DateTime Now = DateTime.Now;
+            Console.WriteLine($"Date and Time at present is : {Now}");
+
+            Console.WriteLine("Enter the Date of Birth : ");
+            DateTime DOB = Convert.ToDateTime(Console.ReadLine());
+            Console.WriteLine($"Date of Birth of Passenger is : {DOB}");
+
+            TimeSpan age_hours = Now - DOB;
+    
+            var age_in_hours = age_hours.Days * 24 + age_hours.Hours;
+            Console.WriteLine($"Age in hours : {age_in_hours} Hours");
+
+            var age_in_days = age_hours.Days;
+            Console.WriteLine($"Age in days : {age_in_days} Days");
+
+            var age_in_weeks = age_in_days / 7;
+            Console.WriteLine($"Age in weeks : {age_in_weeks}");
+
+            var age_in_months = age_in_days / 30;
+            Console.WriteLine($"Age in months : {age_in_months}");
+
+            var age_in_years = age_in_days / 365;
+            Console.WriteLine($"Age in years : {age_in_years}");
+
+            int year = DOB.Year;
+            if (DateTime.IsLeapYear(year))
+            {
+                Console.WriteLine("leap year");
+            }
+            else
+            {
+                Console.WriteLine("Not a leap year");
+            }
+        }
+    }
+}
