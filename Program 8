@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleAppCore
+{
+    internal class Task_8
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Accept the flight fares in decimal into an array. ");
+            Console.WriteLine("Accept destinations in to another array.");
+            Console.WriteLine("Accept the nth number from keyboard and display that destination and fare");
+
+            decimal[] fares = new decimal[5];
+            string[] destination = new string[5];
+
+            for (int i = 0; i < fares.Length; i++)
+            {
+                Console.WriteLine("Enter Fare : ");
+                fares[i] = Convert.ToDecimal(Console.ReadLine());
+            }
+            for (int i = 0; i < destination.Length; i++)
+            {
+                Console.WriteLine("Enter Destination : ");
+                destination[i] = Console.ReadLine();
+            }
+            Console.WriteLine("Enter a key");
+            int index = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Fare at key is : {fares[index]}");
+            Console.WriteLine($"Destination at key is : {destination[index]}");
+        }
+    }
+}
