@@ -1,0 +1,80 @@
+using System;
+using System.Collections.Immutable;
+using System.Xml.Linq;
+
+public class Class1
+{
+    public static void Main(String[] args)
+    {
+        Console.WriteLine("Accept 10 flight fares in decimal format into an array");
+        Console.WriteLine("(A) Print ascending order");
+        Console.WriteLine("(B) Print descending order");
+        Console.WriteLine("(C) Input a fare and search in array and display");
+        Console.WriteLine("(D) Print the max and min fares");
+        Console.WriteLine("(E) Print duplicate elements");
+
+        decimal[] fares = new decimal[5];
+        decimal[] sortedFares = new decimal[5];
+        decimal[] reversedFares = new decimal[5];
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write("Enter fare : ");
+            fares[i] = Convert.ToDecimal(Console.ReadLine());
+        }
+        Array.Sort(fares);
+        for (int a = 0; a < fares.Length; a++)
+        {
+            sortedFares[a] = fares[a];
+        }
+        Console.Write("In ascending order :");
+        foreach (decimal item in sortedFares)
+        {
+            Console.Write($"{item}, ");
+        }
+        Console.WriteLine("\n");
+        Array.Reverse(sortedFares);
+        for (int b = 0; b < sortedFares.Length; b++)
+        {
+            reversedFares[b] = sortedFares[b];
+        }
+        Console.Write("In descending order :");
+        foreach (decimal item in reversedFares)
+        {
+            Console.Write($"{item}, ");
+        }
+        Console.WriteLine("\n");
+        Console.Write("Enter the fare to be searched : ");
+        decimal? search_fare = Convert.ToDecimal(Console.ReadLine());
+        var j = 0;
+        while (search_fare != fares[j])
+        {
+            j++;
+        }
+        Console.WriteLine($"{search_fare} found at {j + 1}th Position.");
+        Array.Sort(fares);
+        int l = 0;
+        Console.WriteLine($"Minimum fare is : {fares[l]}");
+        Console.WriteLine($"Maximum fare is : {fares[fares.Length - 1]}");
+
+        bool isDuplicate = false;
+
+        for (int s = 0; s < fares.Length; s++)
+        {
+            for (int k = s + 1; k < fares.Length; k++)
+            {
+                if (fares[s] == fares[k])
+                {
+                    isDuplicate = true;
+                    Console.WriteLine($"Duplicate is : {fares[s]}");
+                    break;
+                }
+            }
+
+        }
+        if (!isDuplicate)
+        {
+            Console.WriteLine("No duplicates found");
+        }
+    }
+}
+
