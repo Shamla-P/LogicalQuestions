@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleAppCore
+{
+    internal class Task_2
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Accept a flight fare and booking time");
+            Console.WriteLine("a. If booking time from 6am to 9am, apply 10% fare increase and print");
+            Console.WriteLine("b. If booking time from 9am to 5pm, apply 20% fare increase and print");
+            Console.WriteLine("c. If booking time from 5pm to 11pm, apply 7% fare increase and print");
+            Console.WriteLine("d. If booking time from 11pm to 6am, apply 5% fare increase and print");
+
+            Console.WriteLine("Enter the Flight Fare : ");
+            int flightFare = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the Booking Time : ");
+            int bookingTime = int.Parse(Console.ReadLine());
+
+
+            if (bookingTime >= 6 && bookingTime < 9)
+            {
+                Console.WriteLine("Fare is increased by 10%");
+                double newFare = flightFare + (flightFare * .10);
+                Console.WriteLine($"New Fare : {newFare}");
+            }
+            else if (bookingTime >= 9 && bookingTime < 17)
+            {
+                Console.WriteLine("Fare is increased by 20%");
+                double newFare = flightFare + (flightFare * .20);
+                Console.WriteLine($"New Fare : {newFare}");
+            }
+            else if (bookingTime >= 17 && bookingTime < 23)
+            {
+                Console.WriteLine("Fare is increased by 7%");
+                double newFare = flightFare + (flightFare * .07);
+                Console.WriteLine($"New Fare : {newFare}");
+            }
+            else if (bookingTime >= 23 && bookingTime < 25)
+            {
+                Console.WriteLine("Fare is increased by 5%");
+                double newFare = flightFare + (flightFare * .05);
+                Console.WriteLine($"New Fare : {newFare}");
+            }
+            else if (bookingTime < 6)
+            {
+                Console.WriteLine("Fare is increased by 5%");
+                double newFare = flightFare + (flightFare * .05);
+                Console.WriteLine($"New Fare : {newFare}");
+            }
+            else if (bookingTime > 24)
+            {
+                Console.WriteLine("Invalid Input");
+            }
+            else if (bookingTime < 0)
+            {
+                Console.WriteLine("Invalid Input");
+            }
+
+        }
+    }
+}
