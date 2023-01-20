@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleAppCore
+{
+    internal class Task_9
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Accept 10 passenger Date of births and display ");
+            Console.WriteLine("a. Age<10, print as Kid");
+            Console.WriteLine("b. Age>10 and age<30 print as Youth");
+            Console.WriteLine("c. Age>30 and age<60 print Adult");
+            Console.WriteLine("d. Age>60 print Older");
+
+            DateTime[] passengerDOB = new DateTime[10];
+            int[] passengerAge = new int[10];
+
+            DateTime todayDate = DateTime.Now;
+            Console.WriteLine($"Today : {todayDate}");
+
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Enter Passengers DOB");
+                passengerDOB[i] = Convert.ToDateTime(Console.ReadLine());
+
+                passengerAge[i] = todayDate.Year - passengerDOB[i].Year;
+                Console.WriteLine($"Passenger age : {passengerAge[i]}");
+
+                if (passengerAge[i] <= 10)
+                {
+                    Console.WriteLine("Kid");
+                }
+                else if (passengerAge[i] >= 10 && passengerAge[i] < 30)
+                {
+                    Console.WriteLine("Youth");
+                }
+                else if (passengerAge[i] >= 30 && passengerAge[i] < 60)
+                {
+                    Console.WriteLine("Adult");
+                }
+                else if (passengerAge[i] >= 60)
+                {
+                    Console.WriteLine("Older");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid");
+                }
+
+            }
+        }
+    }
+}
