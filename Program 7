@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleAppCore
+{
+    internal class Task7
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Accept passenger name and total miles travelled");
+            Console.WriteLine("a. If miles > 10,000, award 10 frequent flyer points to the passenger and display");
+            Console.WriteLine("b. If miles > 20,000, award 20 frequent flyer points to the passenger and display");
+            Console.WriteLine("c. If miles > 50,000, award 30 frequent flyer points to the passenger and display");
+            Console.WriteLine("d. If miles > 100,000, award 50 frequent flyer points to the passenger and display");
+
+            Console.WriteLine("Enter the Passenger Name : ");
+            string? passengerName = Console.ReadLine();
+
+            Console.WriteLine("Enter the Miles Travelled by the passenger : ");
+            int milesTravelled = int.Parse(Console.ReadLine());
+
+            switch (milesTravelled)
+            {
+                case (>= 10000 and < 20000):
+                    Console.WriteLine($"{passengerName} Awarded 10 frequent flayer points");
+                    break;
+                case (>= 20000 and < 50000):
+                    Console.WriteLine($"{passengerName} Awarded 20 frequent flayer points");
+                    break;
+                case (>= 50000 and < 100000):
+                    Console.WriteLine($"{passengerName} Awarded 30 frequent flayer points");
+                    break;
+                case (>= 100000):
+                    Console.WriteLine($"{passengerName} Awarded 50 frequent flayer points");
+                    break;
+                default:
+                    Console.WriteLine("Not Valid");
+                    break;
+            }
+
+        }
+    }
+}
