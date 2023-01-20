@@ -1,0 +1,81 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleAppCore
+{
+    internal class Task_1
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Accept 10 passenger names in an array");
+            Console.WriteLine("a) Print alphabetic order");
+            Console.WriteLine("b) Print reverse order");
+            Console.WriteLine("c) Input a name and search in array and display");
+            Console.WriteLine("d) Print the length of names in each element");
+            Console.WriteLine("e) Split the names at space and print for each element");
+            Console.WriteLine("f) Print duplicate entries");
+
+
+            string[] passenger_name = new string[10];
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Enter passengers name : ");
+                passenger_name[i] = Console.ReadLine();
+            }
+
+            Console.WriteLine("In alphabetic order : ");
+            Array.Sort(passenger_name);
+            foreach (string item in passenger_name)
+            {
+                Console.WriteLine(item);
+            }
+            Array.Reverse(passenger_name);
+            Console.WriteLine("In reverse order : ");
+            foreach (string item in passenger_name)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("Enter the name to be searched");
+            string searchName = Console.ReadLine();
+            int j = 0;
+            while (passenger_name[j] != searchName)
+            {
+                j++;
+            }
+            Console.WriteLine($"Element searched is {searchName} found at {j + 1} position");
+            Console.WriteLine("Length of each names is : ");
+            foreach (string item in passenger_name)
+            {
+                Console.WriteLine($"{item} : {item.Length}");
+            }
+            Console.WriteLine("Split names at space : ");
+            string forSplit = Console.ReadLine();
+            string[] splited = forSplit.Split(" ");
+            foreach (string s in splited)
+            {
+                Console.WriteLine(s);
+            }
+            bool isDuplicate = false;
+            for (int i = 0; i < 10; i++)
+            {
+                for (int k = i + 1; k < 10; k++)
+                {
+                    if (passenger_name[i] == passenger_name[k])
+                    {
+                        isDuplicate = true;
+                        Console.WriteLine($"Duplicate : {passenger_name[i]}");
+                        break;
+                    }
+                }
+            }
+            if (!isDuplicate)
+            {
+                Console.WriteLine("Duplicate not found");
+            }
+        }
+    }
+}
